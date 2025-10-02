@@ -43,7 +43,7 @@ describe("API test suite for books", () => {
     await spec().delete(`${baseUrl}/books/4`).expectStatus(200);
   });
 
-  it.only("Login to get JWT", async () => {
+  it("Login to get JWT", async () => {
     const requestBody = {
       email: "rv@tai.com",
       password: "learnwithrv",
