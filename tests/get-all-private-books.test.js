@@ -12,7 +12,10 @@ describe('API test suite to get all private books', () => {
   });
 
   it('Get all private books -unauthorized', async () => {
-    await spec().get(`${baseUrl}/private/books`).expectStatus(401);
+    await spec()
+      .get(`${baseUrl}/private/books`)
+      .expectStatus(401)
+      .expectBodyContains('Token required');
   });
 
   it('Get all private books -unauthorized', async () => {

@@ -10,7 +10,7 @@ describe('API test for create a book', () => {
 
   it('Create book by id', async () => {
     const requestBody = {
-      title: 'The Great Gatsby',
+      title: faker.book.title(),
       author: faker.book.author(),
     };
     await spec()

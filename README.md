@@ -8,13 +8,13 @@ This project is an **API automation framework** built using [PactumJS](https://p
 
 Make sure you have the following installed before running the tests:
 
-* [Node.js](https://nodejs.org/)
-* [npm](https://www.npmjs.com/)
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
 Also:
 
-* Create a `.env` file in the project root.
-* Copy all variables from `.env.dist` into `.env` and update them with the proper values.
+- Create a `.env` file in the project root.
+- Copy all variables from `.env.dist` into `.env` and update them with the proper values.
 
 ---
 
@@ -36,5 +36,5 @@ Test execution results are automatically stored in the `results` folder for revi
 
 ## 📌 Notes
 
-* Update dependencies as needed via `npm install`.
-* Customize tests inside the `tests` directory to match your API endpoints.
+- Update dependencies as needed via `npm install`.
+- Customize tests inside the `tests` directory to match your API endpoints.
