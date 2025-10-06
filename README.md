@@ -11,6 +11,11 @@ Make sure you have the following installed before running the tests:
 * [Node.js](https://nodejs.org/)
 * [npm](https://www.npmjs.com/)
 
+Also:
+
+* Create a `.env` file in the project root.
+* Copy all variables from `.env.dist` into `.env` and update them with the proper values.
+
 ---
 
 ## ▶️ Running the Tests
