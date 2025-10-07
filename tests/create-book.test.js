@@ -3,9 +3,9 @@ const { faker } = require('@faker-js/faker');
 const createBookSchema = '../data/response/create-book-schema.json';
 const baseUrl = `${process.env.BASE_URL}`;
 
-// let Chance = require('chance').Chance();
+let chance = require('chance').Chance();
 
-// console.log("I need a " + chance.first());
+console.log("Random data using chance: " + chance.first());
 
 describe('API test for create a book', () => {
   before(() => {
