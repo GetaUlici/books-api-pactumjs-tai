@@ -1,7 +1,7 @@
 const { spec, request } = require('pactum');
-const { faker } = require('@faker-js/faker');
 const { getNewBookID } = require('../lib/create-books');
-const baseUrl = 'http://localhost:3000';
+
+const baseUrl = `${process.env.BASE_URL}`;
 const deleteBookSchema = '../data/response/delete-book-schema.json';
 const deleteBookNegativeSchema = '../data/response/delete-book-negative-schema.json';
 

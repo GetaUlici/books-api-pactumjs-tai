@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx cross-env PACTUM_PW=learnwithrv mocha tests/*.test.js --timeout=15000 --reporter mochawesome --reporter-options reportDir=results,reportFilename=index",
+    "test": "npx cross-env BASE_URL=http://localhost:3000 PACTUM_PW=learnwithrv mocha tests/*.test.js --timeout=15000 --reporter mochawesome --reporter-options reportDir=results,reportFilename=index",
     "format": "npx prettier --write ."
   },
   "keywords": [],
@@ -12,6 +12,7 @@
   "description": "",
   "devDependencies": {
     "@faker-js/faker": "^10.0.0",
+    "chance": "^1.1.13",
     "cross-env": "^10.1.0",
     "dotenv": "^17.2.3",
     "mocha": "^11.7.3",

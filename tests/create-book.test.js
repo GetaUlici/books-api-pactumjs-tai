@@ -1,7 +1,11 @@
 const { spec, request } = require('pactum');
 const { faker } = require('@faker-js/faker');
-const baseUrl = 'http://localhost:3000';
 const createBookSchema = '../data/response/create-book-schema.json';
+const baseUrl = `${process.env.BASE_URL}`;
+
+// let Chance = require('chance').Chance();
+
+// console.log("I need a " + chance.first());
 
 describe('API test for create a book', () => {
   before(() => {
@@ -18,5 +22,29 @@ describe('API test for create a book', () => {
       .withBody(requestBody)
       .expectStatus(201)
       .expectJsonSchema(createBookSchema);
+  });
+
+  it('Validate mandatory title on body', async () => {
+    const requestBody = {
+      title: '',
+      author: 'F. Scott Fitzgerald',
+    };
+    await spec()
+      .post(`${baseUrl}/books`)
+      .withBody(requestBody)
+      .expectStatus(400)
+      .expectBodyContains('Title and author are required.');
+  });
+
+  it('Validate mandatory author on body', async () => {
+    const requestBody = {
+      title: 'Narnia',
+      author: '',
+    };
+    await spec()
+      .post(`${baseUrl}/books`)
+      .withBody(requestBody)
+      .expectStatus(400)
+      .expectBodyContains('Title and author are required.');
   });
 });

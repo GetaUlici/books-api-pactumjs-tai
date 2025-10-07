@@ -1,7 +1,7 @@
 const { spec, request } = require('pactum');
-const { faker } = require('@faker-js/faker');
 const { generateToken } = require('../lib/generate-token');
-const baseUrl = 'http://localhost:3000';
+
+const baseUrl = `${process.env.BASE_URL}`;
 const getPrivateBooksSchema = '../data/response/get-private-books-schema.json';
 
 describe('API test suite to get all private books', () => {

@@ -1,6 +1,6 @@
 const { spec, request } = require('pactum');
-const { faker } = require('@faker-js/faker');
-const baseUrl = 'http://localhost:3000';
+
+const baseUrl = `${process.env.BASE_URL}`;
 const updateBookSchema = '../data/response/update-book-schema.json';
 
 describe('API test to update a book', () => {
