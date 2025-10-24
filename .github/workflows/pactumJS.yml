@@ -1,0 +1,44 @@
+name: PactumJS Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: '30 16 3 * *' # At 03:00 on Monday
+
+jobs:
+  test:
+    name: Run PactumJS Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Optional: if your Pactum tests use environment variables, set them here
+      # - name: Set environment variables
+      #   run: echo "API_BASE_URL=https://example.com" >> $GITHUB_ENV
+
+      - name: Run PactumJS tests
+        run: npx mocha tests/**/*.spec.js --reporter spec
+        # or run your preferred command, e.g.:
+        # run: npm test
+
+      - name: Upload PactumJS test results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pactum-test-results
+          path: results/
+          retention-days: 30
